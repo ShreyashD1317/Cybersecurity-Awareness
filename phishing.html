@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Title –  Blue Horizon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+</head>
+<body>
+<header><h1>Phishing Awareness</h1><p>How to Recognise and Stop Digital Deception</p></header>
+<nav>
+  <a href="index.html">Home</a>
+  <a href="phishing.html">Phishing</a>
+  <a href="passwords.html">Passwords</a>
+  <a href="social.html">Social Engineering</a>
+  <a href="tools.html">Tools & Resources</a>
+  <a href="references.html">References</a>
+</nav>
+<div class="container">
+  <div class="card">
+    <h2>Why Phishing Awareness Matters</h2>
+    <p>Phishing is the most common initial attack method worldwide, and small organisations are especially vulnerable because staff often have multiple roles and handle sensitive information daily. A single deceptive email can lead to stolen credentials, fraudulent financial transfers, malware infections, or unauthorised access to critical business systems, disrupting operations and damaging trust. Phishing awareness empowers employees to spot suspicious messages, verify unusual requests, and report incidents quickly, turning everyday caution into a powerful defence. By embedding these habits into workplace culture, small businesses strengthen resilience, protect customer and staff data, and reduce the financial and reputational risks that phishing attacks so often cause.</p>
+  </div>
+
+  <div class="card">
+    <h2>Research & Critical Insight</h2>
+    <p><li>61% of small businesses have experienced at least one cyberattack in the past year, with phishing among the most common entry points (SQ Magazine, 2024).</li><br>
+    <li>Credential-based attacks—often initiated through phishing are a leading cause of data breaches, and they incur some of the highest average costs (Evolution Systems, 2024).</li> <br>
+    <li>Global data shows that phishing remains the top social engineering tactic, used in a majority of breaches because it targets human trust rather than system flaws (Baker Donelson, 2025).</li> <br></p>
+    <p><strong>Critical Insight:</strong> Phishing works because humans are psychologically wired to trust authority, respond to urgency, and avoid conflict. Awareness training increases recognition of manipulative patterns, reducing risk even without expensive technical controls.</p>
+  </div>
+
+  <div class="card">
+    <h2>Business Relevance & Practicality</h2>
+    <p>At Blue Horizon, staff regularly exchange emails with suppliers, customers, and stakeholders, which creates frequent opportunities for attackers to disguise fraudulent messages as legitimate communication. Phishing awareness is highly relevant because it requires minimal investment yet delivers significant protection across finance, admin, and sales by preventing invoice fraud, unauthorised account access, and the spread of malware. By empowering employees to recognise suspicious emails, verify unusual requests, and report incidents quickly, the organisation strengthens overall data protection, safeguards trust with customers and partners, and ensures business continuity in a digital environment where attackers constantly seek easy entry points.
+</p>
+  </div>
+
+  <div class="card">
+    <h2>Actionable Guidance for Staff</h2>
+    <p><strong>How to Identify Phishing:</strong> Unexpected payment requests, emails with unusual grammar or tone, unknown or mismatched sender domains, hyperlinks that redirect to unfamiliar sites, attachments in unsolicited emails.</p>
+    <p><strong>What to Do:</strong><br>1. Do not click.<br>2. Verify using a secondary channel (phone, official portal).<br>3. Report via the company’s “Suspicious Email” process.<br>4. Delete the message after escalating.</p>
+  </div>
+
+  <div class="card">
+    <h2>Interactive: Spot the Phishing Email – Drag to Check</h2>
+    <p>Drag each red flag to the green zone when you’ve checked for it.</p>
+    <div style="display:flex;gap:2rem;flex-wrap:wrap;">
+      <div style="flex:1;">
+        <div class="drag-item" draggable="true">Unexpected payment request</div>
+        <div class="drag-item" draggable="true">Unusual grammar or tone</div>
+        <div class="drag-item" draggable="true">Mismatched sender domain</div>
+        <div class="drag-item" draggable="true">Suspicious hyperlink</div>
+        <div class="drag-item" draggable="true">Unsolicited attachment</div>
+      </div>
+      <div class="drop-zone" id="done">Drop Here When Checked</div>
+    </div>
+    <div class="success" id="win">Excellent! You’re now phishing-aware!</div>
+    <button onclick="location.reload()" style="margin-top:1rem;padding:0.7rem 1.5rem;background:var(--dark);color:white;border:none;border-radius:8px;">Reset</button>
+  </div>
+
+  <div class="warning">
+    <strong>How It Impacts  Blue Horizon:</strong> Fake supplier invoices could lead to large fraudulent payments. Staff logins could be stolen and used to access accounting systems. Inventory or customer data could be leaked.
+  </div>
+</div>
+
+<footer>
+  <p><strong>MIS761 Trimester 3 2025 – Individual Assignment</strong></p>
+  <p><strong>Disclaimer:</strong> This resource is intended for general cybersecurity awareness at Blue Horizon Office Supplies. It does not replace professional advice, formal security policies, or compliance requirements.</p>
+</footer>
+
+<script>
+  const zone = document.getElementById('done');
+  document.querySelectorAll('.drag-item').forEach(i => {
+    i.addEventListener('dragstart', () => i.classList.add('dragging'));
+    i.addEventListener('dragend', () => { i.classList.remove('dragging'); check(); });
+  });
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('over'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('over'));
+  zone.addEventListener('drop', e => {
+    e.preventDefault(); zone.classList.remove('over');
+    const dragging = document.querySelector('.dragging');
+    if (dragging) { zone.appendChild(dragging); check(); }
+  });
+  function check() {
+    if (zone.querySelectorAll('.drag-item').length === 5) document.getElementById('win').style.display = 'block';
+  }
+</script>
+</body>
+</html>

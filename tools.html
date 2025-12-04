@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tools & Resources :  Blue Horizon Office Supplies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Tools & Resources</h1>
+  <p>Download templates, checklists, and official guidance to keep  Blue Horizon secure every day.</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="phishing.html">Phishing</a>
+  <a href="passwords.html">Passwords</a>
+  <a href="social.html">Social Engineering</a>
+  <a href="tools.html">Tools & Resources</a>
+  <a href="references.html">References</a>
+</nav>
+
+<div class="container">
+  <div class="section">
+    <h2>Tools & Resources</h2>
+    <p>Everything your team needs to stay secure ready to download and use immediately.</p>
+
+    <div class="grid">
+      <div class="box">
+        <h4>Downloadables</h4>
+        <ul class="mt-3">
+          <li><button onclick="downloadPledge()">Staff Cyber Pledge (TXT)</button></li>
+          <li><a href="phishing-response.pdf" download>Phishing Response Chart (PDF)</a></li>
+          <li><a href="password-policy.pdf" download>Password Policy Template (DOC)</a></li>
+          <li><a href="security-checklist.pdf" download>Daily Security Checklist (PDF)</a></li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h4>External Guidance</h4>
+        <ul class="mt-3">
+          <li><a href="https://www.cyber.gov.au/" target="_blank">ACSC – Australian Cyber Security Centre</a></li>
+          <li><a href="https://www.scamwatch.gov.au/" target="_blank">ScamWatch (ACCC)</a></li>
+          <li><a href="https://support.microsoft.com/en-us/topic/protect-yourself-from-phishing-0c8cacd5-7a2d-4d0e-859b-2c47b1c606a9" target="_blank">Microsoft Security Guidance</a></li>
+          <li><a href="https://www.bitwarden.com/help/" target="_blank">Bitwarden Password Manager Help</a></li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h4>References</h4>
+        <p class="text-sm mt-3">
+          <ul style="font-size:0.95rem; line-height:1.8; padding-left:1.3rem; margin-top:0.8rem;">
+    <li>Baker Donelson. (2025).</li>
+    <li>Chong, M., et al. (2018).</li>
+    <li>CyberSec Australia. (2024).</li>
+    <li>Evolution Systems. (2024).</li>
+   
+  </ul>
+  <p style="margin-top:1.2rem; font-size:0.95rem;">
+    <a href="references.html" style="color:var(--pri); font-weight:600;">
+      → View complete reference list with live links.
+    </a>
+  </p>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p><strong>MIS761 Trimester 3 2025 – Individual Assignment</strong></p>
+  <p><strong>Disclaimer:</strong> This resource is intended for general cybersecurity awareness at Blue Horizon Office Supplies. It does not replace professional advice, formal security policies, or compliance requirements.</p>
+</footer>
+
+<script>
+function downloadPledge() {
+  const pledgeText = ` Blue Horizon OFFICE SUPPLIES – STAFF CYBER PLEDGE 2025
+
+I, _______________________________ (Full Name), commit to:
+
+✓ Using strong, unique passwords and passphrases
+✓ Enabling Multi-Factor Authentication (MFA) wherever possible
+✓ Never clicking suspicious links or opening unexpected attachments
+✓ Verifying requests for sensitive information or payments
+✓ Reporting all suspicious activity immediately
+✓ Locking my screen when stepping away
+✓ Keeping cybersecurity top of mind every day
+
+Signed: __________________________       Date: ________________
+
+"Security is everyone's job at  Blue Horizon."`;
+
+  const blob = new Blob([pledgeText], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = ' Blue Horizon_Staff_Cyber_Pledge_2025.txt';
+  a.click();
+  URL.revokeObjectURL(url);
+  alert('Staff Cyber Pledge downloaded! Please print, sign, and return to HR.');
+}
+</script>
+
+</body>
+</html>
